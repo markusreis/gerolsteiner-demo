@@ -125,6 +125,9 @@ const useStyles = makeStyles((theme: Theme) => ({
       fontSize: '1.8rem',
       color: '#414D63',
     },
+    '& > *:last-child': {
+      marginBottom: 0,
+    },
     '& h1, h2, h3, h4, h5, h6': {
       marginBottom: theme.spacing(7),
       marginTop: theme.spacing(10),

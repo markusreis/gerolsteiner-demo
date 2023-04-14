@@ -42,6 +42,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
 
+  innerContainerGlass: {
+    padding: '40px 60px',
+    borderRadius: '30px',
+    backgroundColor: 'rgba(255,255,255,0.8)',
+    display: 'inline-block',
+    backdropFilter: 'blur(3px)',
+    boxShadow: '10px 10px 30px rgba(0,0,0,0.1)'
+  },
+
   partialBgContainer: {
     display: 'none',
     height: '100%',
@@ -140,39 +149,41 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
         </div>
       )}
       <div className={classes.innerContainer}>
-        {/* Tutorial: uncomment this block to render the Greeting field value
-        {greeting && (
-          <Typography>
-            {greeting}
-          </Typography>
-        )}
-        */}
-        {headline && (
-          <Typography
-            variant="h1"
-            className={classes.headline}
-            style={{ color: colorConfig.headlineColor }}>
-            {headline}
-          </Typography>
-        )}
-        {bodyText && (
-          <LayoutContext.Provider value={{ ...defaultLayout, parent: 'hero-banner-body' }}>
-            <div style={{ color: colorConfig.textColor }}>
-              <CtfRichtext {...bodyText} className={classes.body} />
+        <div className={classes.innerContainerGlass}>
+          {/* Tutorial: uncomment this block to render the Greeting field value
+          {greeting && (
+            <Typography>
+              {greeting}
+            </Typography>
+          )}
+          */}
+          {headline && (
+            <Typography
+              variant="h1"
+              className={classes.headline}
+              style={{ color: colorConfig.headlineColor }}>
+              {headline}
+            </Typography>
+          )}
+          {bodyText && (
+            <LayoutContext.Provider value={{ ...defaultLayout, parent: 'hero-banner-body' }}>
+              <div style={{ color: colorConfig.textColor }}>
+                <CtfRichtext {...bodyText} className={classes.body} />
+              </div>
+            </LayoutContext.Provider>
+          )}
+          {targetPage && ctaText && (
+            <div className={classes.ctaContainer}>
+              <PageLink
+                page={targetPage}
+                variant="contained"
+                color={colorConfig.buttonColor}
+                isButton>
+                {ctaText}
+              </PageLink>
             </div>
-          </LayoutContext.Provider>
-        )}
-        {targetPage && ctaText && (
-          <div className={classes.ctaContainer}>
-            <PageLink
-              page={targetPage}
-              variant="contained"
-              color={colorConfig.buttonColor}
-              isButton>
-              {ctaText}
-            </PageLink>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </Container>
   );

@@ -273,10 +273,6 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
       <Container maxWidth={false} className={classes.footerCorporateContainer}>
         <section className={classes.footerCorporate}>
           <div className={classes.corporateLogoMenu}>
-            <div className={classes.corporateLogoContainer}>
-              <Logo className={classes.corporateLogo} />
-            </div>
-
             <section className={classes.copyrightAndLegal}>
               <p className={classes.copyright}>
                 {t('legal.copyright', { year: new Date().getFullYear() })}
